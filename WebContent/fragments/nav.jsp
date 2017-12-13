@@ -5,7 +5,7 @@
 <nav class="navbar navbar-default header navbar-fixed-top">
 	<div class="col-md-12 nav-wrapper">
 		<div class="navbar-header" style="width:100%;">
-			<a href="index.html" class="navbar-brand"><b>CMA</b></a>
+			<a href="index.html" class="navbar-brand"><b>OCM</b></a>
 			<ul class="nav navbar-nav navbar-right user-nav">
 				<li class="user-name" style="padding-top: 5px">
                 	<span>${pageContext.request.userPrincipal.name}</span>
