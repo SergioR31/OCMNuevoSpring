@@ -29,7 +29,7 @@ public class InstructorExamenDAO implements IInstructorExamenDAO {
 	public ArrayList<EventoVO> consultaEventosInstructor(EventoVO evento) throws Exception {
 		// TODO Auto-generated method stub
 		ArrayList<EventoVO> listaPaises = new ArrayList<EventoVO>();
-		String sql = "select * from eventos where usuario_id = 12";
+		String sql = "select * from eventos where usuario_id = 3 and estado = 1";
 		
 		try {
 			listaPaises = (ArrayList<EventoVO>) jdbcTemplate.query(sql, new RowMapper<EventoVO>() {
@@ -54,10 +54,10 @@ public class InstructorExamenDAO implements IInstructorExamenDAO {
 	public ArrayList<InscripcionVO> consultaInscritosEventoInstructor(InscripcionVO inscripcion) throws Exception {
 		// TODO Auto-generated method stub
 		ArrayList<InscripcionVO> listaPaises = new ArrayList<InscripcionVO>();
-		String sql = "select * from inscripciones";
+		String sql = "select * from inscripciones where evento_id = ? and estado = 1";
 		
 		try {
-			listaPaises = (ArrayList<InscripcionVO>) jdbcTemplate.query(sql, new RowMapper<InscripcionVO>() {
+			listaPaises = (ArrayList<InscripcionVO>) jdbcTemplate.query(sql, new Object[] {Integer.valueOf(inscripcion.getId_evento())}, new RowMapper<InscripcionVO>() {
 				
 				public InscripcionVO mapRow(final ResultSet result,
 						final int rowNum) throws SQLException{

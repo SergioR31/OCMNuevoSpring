@@ -47,8 +47,10 @@ public class InstructorExamenController {
 	}
 	
 	@RequestMapping("ver-inscritos.do")
-	public ModelAndView listaInscritosEvento(@ModelAttribute("evento") final InscripcionVO inscripcion, final Model model, final BindingResult result) {
+	public ModelAndView listaInscritosEvento(@ModelAttribute("evento") final EventoVO evento, final InscripcionVO inscripcion, final Model model, final BindingResult result) {
 		try {
+			int id_evento = evento.getId_evento();
+			inscripcion.setId_evento(id_evento);
 			ArrayList<InscripcionVO> listaInscritos = new ArrayList<InscripcionVO>();
 				if(!result.hasErrors()) {
 				    listaInscritos = instructorService.consultaInscritosEventoInstructor(inscripcion);
