@@ -7,123 +7,42 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript" src="javascript.js"></script>
-<title>Inicio</title>
-<meta charset="utf-8">
-	<meta name="description" content="Miminium Admin Template v.1">
-	<meta name="author" content="Isna Nur Azis">
-	<meta name="keyword" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OCM</title>
- 
-    <!-- start: Css -->
-    <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
-
-      <!-- plugins -->
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
-	  <link href="asset/css/style.css" rel="stylesheet">
-	<!-- end: Css -->
-
-	<link rel="shortcut icon" href="asset/img/logomi.png">
+    <c:import url="/fragments/metaLinks.jsp"></c:import>
+    
+    <title>Inicio</title>
+    
 </head>
 
  <body id="mimin" class="dashboard">
  
- 	<nav class="navbar navbar-default header navbar-fixed-top">
-          <div class="col-md-12 nav-wrapper">
-            <div class="navbar-header" style="width:100%;">
-              
-                <a href="index.html" class="navbar-brand"> 
-                 <b>OCM</b>
-                </a>
+ 	<c:import url="/fragments/nav.jsp"/>
+    
+    <c:import url="/fragments/leftMenuAdmin.jsp"/>
+    
+    <div class="container-fluid mimin-wrapper">
+    
+        <!-- start: content -->
+        <div id="content">
 
-              
-
-              <ul class="nav navbar-nav navbar-right user-nav">
-               <li class="user-name" style="padding-top: 5px">
-                	<span>${pageContext.request.userPrincipal.name}</span>
-                	<a href="inicio.jsp" style="padding:0">Cerrar Sesion</a>
-                </li>
-                  <li class="dropdown avatar-dropdown">
-                   <img src="asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
-                  </li>
-                
-              </ul>
-            </div>
-          </div>
-        </nav>
-      <!-- end: Header -->
-
-      <div class="container-fluid mimin-wrapper">
-  
-          <!-- start:Left Menu -->
-  
-   <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-                    
-                    <li class="ripple">
-                      <a href="<%=request.getContextPath()%>/index.jsp"> 
-                      <span class="fa-home fa"></span>Inicio
-                      </a>
-                    </li>
-                    
-					<li class="ripple">
-                      <a href="<%=request.getContextPath()%>/crear-evento.do?opcion=inicioAltaEvento"> 
-                      <span class="fa-calendar-plus-o fa"></span>Crear Evento
-                      </a>
-                    </li>
-                    
-					<li class="active ripple">
-                      <a href="<%=request.getContextPath()%>/listar-evento.do?opcion=verListadoEventos"> 
-                      <span class="fa-calendar fa"></span> Ver Eventos 
-                      </a>
-                    </li>
-                    
-					<li class="ripple">
-                      <a href="<%=request.getContextPath()%>/listar-inscripciones.do?opcion=verEventos">
-                      <span class="fa-tasks fa"></span> Dashboard 
-                      </a>
-                    </li>
-                    
-                                       
-                  </ul>
+            <div class="panel box-shadow-none content-header">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <h3 class="animated fadeInLeft">Ver Eventos</h3>                    
+                    </div>
                 </div>
             </div>
-   </div>
-          <!-- end: Left Menu -->
-
-  		
-          <!-- start: content -->
-            <div id="content">
-			<div class="panel box-shadow-none content-header">
-				<div class="panel-body">
-					<div class="col-sm-12">
-						<h3 class="animated fadeInLeft">Ver Eventos</h3>                    
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-11">
-			<div class="col-md-1">
-				<button class="btn btn-success" style="font-size:20px!important;" onclick="window.location.href='<%=request.getContextPath()%>/crear-evento.do?opcion=inicioAltaEvento'">+</button>
-			</div>
-			</div>
-			
 			
 			<div class="col-md-12 top-20 padding-0">
 				<div class="col-md-12">
 					<div class="panel">
 						<div class="panel-heading">
+                            <div style="position:absolute; right:30px; top:10px;">
+                                <button class="btn btn-success" style="font-size:20px!important;" onclick="window.location.href='<%=request.getContextPath()%>/crear-evento.do?opcion=inicioAltaEvento'">+</button>
+                            </div>
 							<h3>Eventos</h3>
 						</div>
 						
@@ -133,7 +52,7 @@
 									<div class="row">
 										<div class="col-sm-12">
 										<form:form action="ver-inscritos.do" method="post" modelAttribute="evento">
-											<table id="datatables-example" class="table table-striped table-bordered dataTable no-footer" width="100%" cellspacing="0" role="grid" aria-describedby="datatables-example_info" style="width: 100%;">
+											<table id="datatables-example" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatables-example_info" style="width: 100%;">
 												<thead>
 													<tr role="row">
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
@@ -181,9 +100,7 @@
  																<td style="text-align: center;"><form:button path="id" class="btn btn-info" name="detallesListaEvento" value="${Evento.id_evento }">Ver Detalles</form:button></td>
  																<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
 																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td>
-																
-																
-																
+
 															</tr>
 														</c:forEach>
 													</c:if>		
@@ -198,33 +115,9 @@
 					</div>
 				</div>
 			</div> 
-			
-            
-	 <!-- Star Mobile -->		
-		
-       <!-- end: Mobile -->
-
-    <!-- start: Javascript -->
-    <script src="asset/js/jquery.min.js"></script>
-    <script src="asset/js/jquery.ui.min.js"></script>
-    <script src="asset/js/bootstrap.min.js"></script>
-     
-    <!-- plugins -->
-    <script src="asset/js/plugins/moment.min.js"></script>
-    <script src="asset/js/plugins/fullcalendar.min.js"></script>
-    <script src="asset/js/plugins/jquery.nicescroll.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.min.js"></script>
-    <script src="asset/js/plugins/maps/jquery.vmap.world.js"></script>
-    <script src="asset/js/plugins/jquery.vmap.sampledata.js"></script>
-    <script src="asset/js/plugins/chart.min.js"></script>
-
-    <!-- custom -->
-     <script src="asset/js/main.js"></script>
-  
-  <!-- end: Javascript -->
-  				</div>
-  				</div>
-  </body>
+        </div>
+    </div>
+</body>
 
 <script type="text/javascript">
 
@@ -238,6 +131,7 @@
 		document.forms["form"].submit();
 	}
 </script>
+
 <script>
 
 function eliminarEvento(){
@@ -245,10 +139,21 @@ function eliminarEvento(){
 	document.forms["formaLista"].action = "<%=request.getContextPath()%>/listar-evento.do?opcion=verListadoEventos";
 	document.forms["formaLista"].submit();
 }
-
-//function cambiarColorBorde(elcolor) {
-//	  var contenedor = document.getElementById("nombreDIV");  
-//	  contenedor.style.background-color = elcolor;
-//	}
 </script>
+
+<script type="text/javascript">
+window.onload = function(){
+    var activarMenu = 'menu-paises';
+    var respuesta = '${respuesta}';
+    
+    document.getElementById(activarMenu).className = 'active ripple';
+    
+    if (respuesta != null && respuesta != ""){
+        alert(respuesta);
+    }
+};
+</script>
+
+<c:import url="/fragments/scripts.jsp"/>
+
 </html>
