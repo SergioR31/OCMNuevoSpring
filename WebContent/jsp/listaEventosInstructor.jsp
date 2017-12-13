@@ -130,6 +130,7 @@
 		document.forms["form"].action = "<%=request.getContextPath()%>/listar-inscripciones.do";
 		document.forms["form"].submit();
 	}
+	
 </script>
 
 <script>
@@ -139,6 +140,7 @@ function eliminarEvento(){
 	document.forms["formaLista"].action = "<%=request.getContextPath()%>/listar-evento.do?opcion=verListadoEventos";
 	document.forms["formaLista"].submit();
 }
+
 </script>
 
 <script type="text/javascript">
