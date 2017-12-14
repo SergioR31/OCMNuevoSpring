@@ -11,6 +11,7 @@ public class InscripcionVO {
 	private int id_inscripcion;
 	private int id_evento;
 	private int id_usuario;
+	private int id_examen;
 	private String pago;
 	private int estado;
 	private String nombre;
@@ -20,6 +21,19 @@ public class InscripcionVO {
 	private String nombre_evento;
 	private String nombre_instructor;
 	private String nombre_curso;
+	
+	/**
+	 * @return the id_examen
+	 */
+	public int getId_examen() {
+		return id_examen;
+	}
+	/**
+	 * @param id_examen the id_examen to set
+	 */
+	public void setId_examen(int id_examen) {
+		this.id_examen = id_examen;
+	}
 	/**
 	 * @return the id_inscripcion
 	 */
