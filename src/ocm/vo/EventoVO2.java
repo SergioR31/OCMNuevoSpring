@@ -6,6 +6,8 @@ package ocm.vo;
 /**
  * @author Eric
  *
+ *holis
+ *
  */
 public class EventoVO2 {
 	private int id_evento;
