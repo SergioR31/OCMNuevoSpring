@@ -6,7 +6,7 @@
 	
 	<Resource name="jdbc/conexionOCM" auth="Container"
 			type="javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver"
-			url="jdbc:oracle:thin:@localhost:1521:xe"
+			url="jdbc:oracle:thin:@localhost:1521:orcl"
 			username="Administrador" password="Admin" maxActive="20" maxIdle="10"
 			maxWite="-1"/>
 
