@@ -29,14 +29,14 @@ import ocm.servicio.interfaces.IPreguntasExamenService;
 public class ExamenController {
 
 	@Autowired
-	private IInstructorExamenService instructorService;
+	private IPreguntasExamenService examenService;
 	
 	@RequestMapping("lista-examen.do")
 	public ModelAndView listaPreguntasExamen(@ModelAttribute("pregunta") final PreguntaVO pregunta, final Model model, final BindingResult result) {
 		try {
 			ArrayList<PreguntaVO> listaPreguntas = new ArrayList<PreguntaVO>();
 				if(!result.hasErrors()) {
-					listaPreguntas = PreguntasExamenService.consultaPreguntasExamen(pregunta);
+					listaPreguntas = examenService.consultaPreguntasExamen(pregunta);
 					model.addAttribute("listaPreguntas", listaPreguntas);
 				}
 		}catch(Exception e) {
@@ -45,26 +45,5 @@ public class ExamenController {
 		return new ModelAndView("examenPrueba");
 	}
 	
-	
-	
-	
-	
-	@RequestMapping("ver-examen.do")
-	public ModelAndView listaInscritosEvento(@ModelAttribute("evento") final EventoVO evento, final InscripcionVO inscripcion, final Model model, final BindingResult result) {
-		try {
-			int id_evento = evento.getId_evento();
-			inscripcion.setId_evento(id_evento);
-			ArrayList<InscripcionVO> listaInscritos = new ArrayList<InscripcionVO>();
-				if(!result.hasErrors()) {
-				    listaInscritos = instructorService.consultaInscritosEventoInstructor(inscripcion);
-					model.addAttribute("listaInscritos", listaInscritos );
-				}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return new ModelAndView("examenPrueba");
-	}
-
-    
+   
 }

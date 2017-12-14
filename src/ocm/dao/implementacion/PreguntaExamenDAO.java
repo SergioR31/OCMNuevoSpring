@@ -29,30 +29,32 @@ public class PreguntaExamenDAO implements IPreguntaExamenDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Override
-	public ArrayList<PreguntaVO> consultaEventosInstructor(PreguntaVO pregunta) throws Exception; {
+	public ArrayList<PreguntaVO> consultaPreguntasExamen(PreguntaVO pregunta) throws Exception {
 		// TODO Auto-generated method stub
-		ArrayList<EventoVO> listaPaises = new ArrayList<EventoVO>();
-		String sql = "select * from preguntas "; //where usuario_id = 3 and estado = 1
+		ArrayList<PreguntaVO> listaPreguntas = new ArrayList<PreguntaVO>();
+		String sql = "select * from preguntas where id =  1";
 		
 		try {
-			listaPaises = (ArrayList<EventoVO>) jdbcTemplate.query(sql, new RowMapper<EventoVO>() {
+			listaPreguntas = (ArrayList<PreguntaVO>) jdbcTemplate.query(sql, new RowMapper<PreguntaVO>() {
 				
-				public EventoVO mapRow(final ResultSet result,
+				public PreguntaVO mapRow(final ResultSet result,
 						final int rowNum) throws SQLException{
-						EventoVO evento = new EventoVO();
-						evento.setId_evento(result.getInt("id"));
-						evento.setNombre(result.getString("nombre"));
+						PreguntaVO pregunta = new PreguntaVO();
+						pregunta.setId_pregunta(result.getString("id"));
+						pregunta.setPregunta(result.getString("pregunta"));
 												
-						return evento;
+						return pregunta;
 				}
 			});
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
-		return listaPaises;
+		return listaPreguntas;
 	}
 
+	
+	/*
 	@Override
 	public ArrayList<InscripcionVO> consultaInscritosEventoInstructor(InscripcionVO inscripcion) throws Exception {
 		// TODO Auto-generated method stub
@@ -75,7 +77,8 @@ public class PreguntaExamenDAO implements IPreguntaExamenDAO {
 			e.printStackTrace();
 			throw e;
 		}
+		
 		return listaPaises;
 	}
-
+*/
 }

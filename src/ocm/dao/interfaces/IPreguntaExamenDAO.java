@@ -5,7 +5,7 @@ package ocm.dao.interfaces;
 
 import java.util.ArrayList;
 
-import ocm.servicio.interfaces.Exception;
+
 import ocm.vo.EventoVO;
 import ocm.vo.InscripcionVO;
 import ocm.vo.PreguntaVO;

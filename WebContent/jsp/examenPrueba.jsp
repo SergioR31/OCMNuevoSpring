@@ -51,7 +51,7 @@
 								<div id="datatables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 									<div class="row">
 										<div class="col-sm-12">
-										<form:form action="ver-inscritos.do" method="post" modelAttribute="evento">
+										<form:form action="ver-inscritos.do" method="post" modelAttribute="pregunta">
 											<table id="datatables-example" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatables-example_info" style="width: 100%;">
 												<thead>
 													<tr role="row">
@@ -66,9 +66,9 @@
 														<c:forEach items="${listaPreguntas}" var="Pregunta">
 														
 															<tr>
-																<td style="text-align: center;">${Pregunta.nombre}<form:hidden path="id_pregunta" id="idPregunta"></form:hidden></td>
+																<td style="text-align: center;">${Pregunta.pregunta}<form:hidden path="id_pregunta" id="idPregunta"></form:hidden></td>
 															
- 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver Detalles"/></td>
+ 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Pregunta.pregunta})" name="detallesListaEvento" value="Ver Detalles"/></td>
  																
 															</tr>
 														</c:forEach>
@@ -76,8 +76,8 @@
 												</tbody>
 											</table>
 											
-											<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
-																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td>
+											<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Pregunta.pregunta}">Modificar</button></td>
+																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Pregunta.pregunta}">Eliminar</button></td>
 											
 											</form:form>
 										</div>
