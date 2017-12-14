@@ -40,9 +40,9 @@
 				<div class="col-md-12">
 					<div class="panel">
 						<div class="panel-heading">
-                            <div style="position:absolute; right:30px; top:10px;">
+                            <%-- <div style="position:absolute; right:30px; top:10px;">
                                 <button class="btn btn-success" style="font-size:20px!important;" onclick="window.location.href='<%=request.getContextPath()%>/crear-evento.do?opcion=inicioAltaEvento'">+</button>
-                            </div>
+                            </div> --%>
 							<h3>Eventos</h3>
 						</div>
 						
@@ -57,23 +57,20 @@
 													<tr role="row">
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Nombre del evento
-														</th>
-														<!-- <th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Instructor
-														</th> -->									
+														</th>								
 														
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Nombre del curso
 														</th>
+														
+														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
+															Inscritos
+														</th>
+														
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															
 														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															
-														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															
-														</th>
+														
 														
 													</tr>
 												</thead>
@@ -83,13 +80,12 @@
 														
 															<tr>
 																<td style="text-align: center;">${Evento.nombre}<form:hidden path="id_evento" id="idEvento"></form:hidden></td>
-																<td style="text-align: center;">${Evento.precio}</td>
-																<td style="text-align: center;">${Evento.fecha_inicio}</td>
-																<td style="text-align: center;">${Evento.fecha_fin}</td>
 																<td style="text-align: center;">${Evento.nombre_curso}</td>
- 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver Detalles"/></td>
- 																<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
-																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td>
+																<td style="text-align: center;">${Evento.inscritos}</td>
+																
+ 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver inscritos"/></td>
+ 																<%-- <td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
+																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td> --%>
 
 															</tr>
 														</c:forEach>

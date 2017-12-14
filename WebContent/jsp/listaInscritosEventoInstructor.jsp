@@ -31,7 +31,7 @@
 			<div class="panel box-shadow-none content-header">
 				<div class="panel-body">
 					<div class="col-sm-12">
-						<h3 class="animated fadeInLeft">Ver Eventos</h3>                    
+						<h3 class="animated fadeInLeft">${listaInscritos[1].nombre_curso}</h3>                    
 					</div>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 				<div class="col-md-12">
 					<div class="panel">
 						<div class="panel-heading">
-							<h3>Eventos</h3>
+							<h3>Inscritos</h3>
 						</div>
 						
 						<div class="panel-body">
@@ -53,7 +53,7 @@
 												<thead>
 													<tr role="row">
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Nombre del evento
+															Nombre del Alumno
 														</th>
 														<!-- <th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Instructor
@@ -62,26 +62,21 @@
 															Curso
 														</th> --> 
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Precio
+															Apellido Paterno
 														</th>
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Fecha Inicio
+															Apellido Materno
 														</th>
+														
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Fecha Fin
+															
 														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Nombre del curso
-														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
+														<!-- <th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															
 														</th>
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															
-														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															
-														</th>
+														</th> -->
 														
 													</tr>
 												</thead>
@@ -90,11 +85,20 @@
 														<c:forEach items="${listaInscritos}" var="Inscripcion">
 															<tr>
 																<td style="text-align: center;">${Inscripcion.nombre}</td>
-																<td style="text-align: center;">${Inscripcion.id_inscripcion}</td>
+																<td style="text-align: center;">${Inscripcion.apellido_paterno}</td>
+																<td style="text-align: center;">${Inscripcion.apellido_materno}</td>
+																
+																<%-- <td style="text-align: center;">${Inscripcion.id_inscripcion}</td> --%>
 																<%-- <td style="text-align: center;">${Evento.fecha_inicio}</td>
 																<td style="text-align: center;">${Evento.fecha_fin}</td>
 																<td style="text-align: center;">${Evento.nombre_curso}</td> --%>
+																<c:if test="${Inscripcion.id_examen == 0}">
+																<td style="text-align: center;"><button class="btn btn-danger" disabled>Examen no asignado</button></td>
+ 																</c:if>
+ 																<c:if test="${Inscripcion.id_examen != 0}">
  																<td style="text-align: center;"><form:button path="id" class="btn btn-info" name="detallesListaEvento" value="${Inscripcion.id_inscripcion }">Ver Detalles</form:button></td>
+ 																
+ 																</c:if>
  																<%-- <td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
 																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td> --%>
 																
@@ -105,6 +109,15 @@
 													</c:if>		
 												</tbody>
 											</table>
+											<c:if test="${listaInscritos[0].id_examen == 0}">
+											
+											<p style="color: white;">.</p>
+											<div class="col-md-11" style="text-align: center;">
+											<h3>Asignar examen</h3></div>
+											
+											
+											
+											</c:if>
 											</form:form>
 										</div>
 									</div>
