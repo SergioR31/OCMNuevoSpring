@@ -60,19 +60,8 @@
 														</th>
 														<!-- <th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Instructor
-														</th> -->
-														<!-- <th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Curso
-														</th> --> 
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Precio
-														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Fecha Inicio
-														</th>
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Fecha Fin
-														</th>
+														</th> -->									
+														
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Nombre del curso
 														</th>
@@ -91,13 +80,14 @@
 												<tbody>
 													<c:if test="${not empty listaEventos}">
 														<c:forEach items="${listaEventos}" var="Evento">
+														
 															<tr>
-																<td style="text-align: center;">${Evento.nombre}</td>
+																<td style="text-align: center;">${Evento.nombre}<form:hidden path="id_evento" id="idEvento"></form:hidden></td>
 																<td style="text-align: center;">${Evento.precio}</td>
 																<td style="text-align: center;">${Evento.fecha_inicio}</td>
 																<td style="text-align: center;">${Evento.fecha_fin}</td>
 																<td style="text-align: center;">${Evento.nombre_curso}</td>
- 																<td style="text-align: center;"><form:button path="id" class="btn btn-info" name="detallesListaEvento" value="${Evento.id_evento }">Ver Detalles</form:button></td>
+ 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver Detalles"/></td>
  																<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
 																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td>
 
@@ -129,6 +119,12 @@
 	function verInscripciones(){
 		document.forms["form"].action = "<%=request.getContextPath()%>/listar-inscripciones.do";
 		document.forms["form"].submit();
+	}
+	
+	function verListaInscripcionesInstructor(id){
+		document.getElementById("idEvento").value = id;
+		document.forms[0].action = "<%=request.getContextPath()%>/instructor/ver-inscritos.do";
+		document.forms[0].submit();
 	}
 	
 </script>
