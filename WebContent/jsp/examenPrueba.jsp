@@ -13,7 +13,7 @@
 
     <c:import url="/fragments/metaLinks.jsp"></c:import>
     
-    <title>Inicio</title>
+    <title>examen</title>
     
 </head>
 
@@ -40,10 +40,10 @@
 				<div class="col-md-12">
 					<div class="panel">
 						<div class="panel-heading">
-                            <%-- <div style="position:absolute; right:30px; top:10px;">
+                            <div style="position:absolute; right:30px; top:10px;">
                                 <button class="btn btn-success" style="font-size:20px!important;" onclick="window.location.href='<%=request.getContextPath()%>/crear-evento.do?opcion=inicioAltaEvento'">+</button>
-                            </div> --%>
-							<h3>Eventos</h3>
+                            </div>
+							<h3>Examen</h3>
 						</div>
 						
 						<div class="panel-body">
@@ -57,41 +57,28 @@
 													<tr role="row">
 														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
 															Nombre del evento
-														</th>								
-														
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Nombre del curso
 														</th>
-														
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															Inscritos
-														</th>
-														
-														<th class="sorting_asc" tabindex="0" aria-controls="datatables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px; text-align: center;">
-															
-														</th>
-														
 														
 													</tr>
 												</thead>
 												<tbody>
-													<c:if test="${not empty listaEventos}">
-														<c:forEach items="${listaEventos}" var="Evento">
+													<c:if test="${not empty listaPreguntas}">
+														<c:forEach items="${listaPreguntas}" var="Pregunta">
 														
 															<tr>
-																<td style="text-align: center;">${Evento.nombre}<form:hidden path="id_evento" id="idEvento"></form:hidden></td>
-																<td style="text-align: center;">${Evento.nombre_curso}</td>
-																<td style="text-align: center;">${Evento.inscritos}</td>
-																
- 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver inscritos"/></td>
- 																<%-- <td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
-																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td> --%>
-
+																<td style="text-align: center;">${Pregunta.nombre}<form:hidden path="id_pregunta" id="idPregunta"></form:hidden></td>
+															
+ 																<td style="text-align: center;"><input type="button" class="btn btn-info" onclick="verListaInscripcionesInstructor(${Evento.id_evento })" name="detallesListaEvento" value="Ver Detalles"/></td>
+ 																
 															</tr>
 														</c:forEach>
 													</c:if>		
 												</tbody>
 											</table>
+											
+											<td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
+																<td style="text-align: center;"><button class="btn btn-danger" name="eliminarEvento" value="${Evento.id_evento }">Eliminar</button></td>
+											
 											</form:form>
 										</div>
 									</div>
