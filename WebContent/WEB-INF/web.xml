@@ -26,12 +26,24 @@
     <param-value>
         /WEB-INF/OCMSpring-servlet.xml
         /WEB-INF/i18n.xml
+<!--         /WEB-INF/Spring_security-servlet.xml -->
     </param-value>
   </context-param>
+  
+<!--   <filter> -->
+<!--     <filter-name>springSecurityFilterChain</filter-name> -->
+<!--     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
+<!--   </filter> -->
+  
+<!--   <filter-mapping> -->
+<!--   <filter-name>springSecurityFilterChain</filter-name> -->
+<!--   <url-pattern>/*</url-pattern> -->
+<!-- </filter-mapping> -->
   
   <listener>
     <listener-class>
         org.springframework.web.context.ContextLoaderListener
     </listener-class>
   </listener>
+
 </web-app>

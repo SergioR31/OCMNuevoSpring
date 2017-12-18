@@ -1,43 +1,108 @@
+/**
+ *
+ */
 package ocm.vo;
 
+/**
+ * @author Eric
+ *
+ */
 public class ExamenVO {
+    private int id;
+    private String nombre;
+    private int curso_id;
+    private int puntaje_min;
+    private int puntaje_max;
+    private int id_evento;
 
-	
-		String id_examen;
-		String nombre;
-		String id_curso;
-		int puntuaje_min;
-		int puntuaje_max;
-		public String getId_examen() {
-			return id_examen;
-		}
-		public void setId_examen(String id_examen) {
-			this.id_examen = id_examen;
-		}
-		public String getNombre() {
-			return nombre;
-		}
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
-		public String getId_curso() {
-			return id_curso;
-		}
-		public void setId_curso(String id_curso) {
-			this.id_curso = id_curso;
-		}
-		public int getPuntuaje_min() {
-			return puntuaje_min;
-		}
-		public void setPuntuaje_min(int puntuaje_min) {
-			this.puntuaje_min = puntuaje_min;
-		}
-		public int getPuntuaje_max() {
-			return puntuaje_max;
-		}
-		public void setPuntuaje_max(int puntuaje_max) {
-			this.puntuaje_max = puntuaje_max;
-		}
-		
-		
+    /**
+     * @return the id_evento
+     */
+    public int getId_evento() {
+        return id_evento;
+    }
+
+    /**
+     * @param id_evento
+     *            the id_evento to set
+     */
+    public void setId_evento(int id_evento) {
+        this.id_evento = id_evento;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     *            the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre
+     *            the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return the curso_id
+     */
+    public int getCurso_id() {
+        return curso_id;
+    }
+
+    /**
+     * @param curso_id
+     *            the curso_id to set
+     */
+    public void setCurso_id(int curso_id) {
+        this.curso_id = curso_id;
+    }
+
+    /**
+     * @return the puntaje_min
+     */
+    public int getPuntaje_min() {
+        return puntaje_min;
+    }
+
+    /**
+     * @param puntaje_min
+     *            the puntaje_min to set
+     */
+    public void setPuntaje_min(int puntaje_min) {
+        this.puntaje_min = puntaje_min;
+    }
+
+    /**
+     * @return the puntaje_max
+     */
+    public int getPuntaje_max() {
+        return puntaje_max;
+    }
+
+    /**
+     * @param puntaje_max
+     *            the puntaje_max to set
+     */
+    public void setPuntaje_max(int puntaje_max) {
+        this.puntaje_max = puntaje_max;
+    }
+
 }

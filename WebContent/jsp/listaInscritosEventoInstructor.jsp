@@ -96,7 +96,7 @@
 																<td style="text-align: center;"><button class="btn btn-danger" disabled>Examen no asignado</button></td>
  																</c:if>
  																<c:if test="${Inscripcion.id_examen != 0}">
- 																<td style="text-align: center;"><form:button path="id" class="btn btn-info" name="detallesListaEvento" value="${Inscripcion.id_inscripcion }">Ver Detalles</form:button></td>
+ 																<td style="text-align: center;"><button class="btn btn-info" name="detallesListaEvento" value="${Inscripcion.id_inscripcion }">Ver Detalles</button></td>
  																
  																</c:if>
  																<%-- <td style="text-align: center;"><button class="btn btn-warning" name="modificarEvento" value="${Evento.id_evento }">Modificar</button></td>
@@ -115,7 +115,15 @@
 											<div class="col-md-11" style="text-align: center;">
 											<h3>Asignar examen</h3></div>
 											
+											<select name="selectExamen">
+											     <c:forEach items="${listaExamenes }" var = "test">
+											         <option value="${test.id }"> ${test.nombre }</option>
+											     </c:forEach>
+											</select>
 											
+											<input type="hidden" name="evento" value="${listaExamenes[0].id_evento }">
+											
+											<button onclick="asignarExamen()">Asignar Examen</button>
 											
 											</c:if>
 											</form:form>
@@ -141,6 +149,11 @@
 	function verInscripciones(){
 		document.forms["form"].action = "<%=request.getContextPath()%>/listar-inscripciones.do";
 		document.forms["form"].submit();
+	}
+	
+	function asignarExamen(){
+		document.forms[0].action = "<%=request.getContextPath()%>/instructor/asignar-examen.do";
+		document.forms[0].submit();
 	}
 </script>
 
